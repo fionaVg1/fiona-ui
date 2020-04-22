@@ -1,6 +1,6 @@
 /* 两种全局注册组件的方法： 1. Vue.component() 2. Vue.use() 该方法前提是你的组件里必须有一个install方法 */
 <template>
-    <button :class="[`fiona-button--${type}`,{'is-circle':circle},{'is-plain':plain},{'is-round':round},{'is-disabled':disabled}]" :disabled="disabled" @click="handleClick">
+    <button :class="[`fiona-button`,`fiona-button--${type}`,{'is-circle':circle},{'is-plain':plain},{'is-round':round},{'is-disabled':disabled}]" :disabled="disabled" @click="handleClick">
         <i :class="icon" v-if="icon"></i>
         <span v-if="$slots.default">
             <slot></slot>
