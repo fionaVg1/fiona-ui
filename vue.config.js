@@ -13,7 +13,16 @@ module.exports = {
         config.module.rule('js').include.add(path.resolve(__dirname, 'packages')).end().use('babel').loader('babel-loader').tap(options => {
             return options;
         });
+        const svgRule = config.module.rule('svg');
+        svgRule.uses.clear();
+        svgRule
+      .use('babel-loader')
+      .loader('babel-loader')
+      .end()
+      .use('vue-svg-loader')
+      .loader('vue-svg-loader');
     },
+    
     configureWebpack: {
         devtool: 'source-map'
     }
